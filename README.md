@@ -2,8 +2,11 @@
 
 ## Affiliate List
 Simple Laravel application which:
+
 Parses data from a JSON file into manageable array of objects
+
 Calculates distance between geo. coordinates given in data file, and target location (Dublin office)
+
 Returns array of certain file entries (affiliates), with name and affiliate ID. 
 
 ## Running the application
