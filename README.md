@@ -20,7 +20,7 @@ Run `composer install` to generate dependency packages
 
 Run `cp .env.example .env && php artisan key:generate` this will create the env file & app key needed to run the application.
 
-Run `php artisan serve` launch the application on https://localhost:8000
+Run `php artisan serve` launch the application on http://localhost:8000
 
 -----
 Gambling.com Group Dev Code Test
