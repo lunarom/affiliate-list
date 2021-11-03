@@ -9,6 +9,12 @@ Calculates distance between geo. coordinates given in data file, and target loca
 
 Returns array of certain file entries (affiliates) within 100km, with name and affiliate ID. 
 
+## System Requirements
+[Composer](https://getcomposer.org/download/)
+[PHP](https://www.php.net/downloads.php)
+
+PHP dom extension [PHP XML](https://stackoverflow.com/questions/43408604/php7-install-ext-dom-issue) is also required to run composer on a machine that does not have PHP installed.  
+
 ## Running the application
 To run the application, clone files to a local directory
 
