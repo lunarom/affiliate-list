@@ -9,9 +9,15 @@ class AffiliateController extends Controller
 {
     // Earth's Radius in meters
     const EARTH_RADIUS = 6371000;
+    // Dublin office longitude & latitude
     const DUBLIN_LONG = -6.2535495;
     const DUBLIN_LAT = 53.3340285;
 
+    /**
+     * Reads in data file from local storage - newline delimited json
+     * {["latitude": "", "affiliate_id": "", "name": "", "longitude":""], .... }
+     * @return object[] - returns array of all data entries as objects
+     */ 
     private function getJsonAsArray(){
         $ndjson = Storage::disk('local')->get('affiliates.txt');
         
@@ -22,7 +28,14 @@ class AffiliateController extends Controller
         return array_map(fn($line) => json_decode($line, true), $json);
     }
 
-    // https://en.wikipedia.org/wiki/Great-circle_distance#Formulae
+    /**
+     * Calculates distance between given longitude/latitude and constant geographical coordinate (the Dublin office).
+     * https://en.wikipedia.org/wiki/Great-circle_distance#Formulae
+
+     * @param longitude - longitude coordinate provided by data entry
+     * @param latitude  - latitude coordinate provided by data entry
+     * @return distance - floating point distance value between the two points in KM
+     */ 
     private function calculateDistance($longitude, $latitude){
 
         // Convert to rads
@@ -39,6 +52,12 @@ class AffiliateController extends Controller
         return $distance;
     }
 
+    /**
+     * Finds affiliates in data file within 100km of Dublin office
+     * Calls getJsonAsArray and stores data entries in local variable $affiliates
+     * Calls calculateDistance() comparison function on each entry's longitude/latitude     * 
+     * @return affWithin100km -  object[] containing name, affiliate_id
+     */ 
     private function getAffiliatesWithin100(){
         // Get all affiliates
         $affiliates = $this->getJsonAsArray();
@@ -63,6 +82,9 @@ class AffiliateController extends Controller
         return($affWithin100km);
     }
 
+    /**
+    * @return view - returns affiliate-list view including data for affiliates name/id within 100km
+     */ 
     public function showAffiliates(){
         $affiliates = $this->getAffiliatesWithin100();
         return view('affiliate-list')->with('affiliates', $affiliates);
