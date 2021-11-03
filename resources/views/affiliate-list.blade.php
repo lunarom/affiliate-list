@@ -22,6 +22,20 @@
                 display: flex;
                 flex-direction: column;
             }
+            .main h3 {
+                padding: 10px 10px 0 10px;
+            }
+            .main ul {
+                padding-left: 0;
+                list-style: none;
+            }
+            .main li {
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .main li:nth-child(odd){
+                background: #718096;
+            }
         </style>
     </head>
     <body class="antialiased">
