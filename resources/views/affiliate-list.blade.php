@@ -17,8 +17,15 @@
             <div class="main">
                 <h3>Affiliates within 100KM of the Dublin Office</h3>
                 <ul>
+                    <li>
+                        <p>Name</p>
+                        <p>ID</p>
+                    </li>
                     @foreach ($affiliates as $affiliate)
-                        <li>{{ $affiliate->name }} - {{ $affiliate->id }}</li>
+                        <li>
+                            <p>{{ $affiliate->name }}</p> 
+                            <p>{{ $affiliate->id }}</p>
+                        </li>
                     @endforeach
                 </ul>
             </div>

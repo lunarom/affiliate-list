@@ -16,7 +16,17 @@ body {
 .main li {
     padding: 10px;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
 }
-.main li:nth-child(odd){
+.main p {
+    padding: 0;
+    margin: 0;
+}
+.main li:nth-child(even){
     background: #718096;
+}
+.main li:first-child p{
+    text-decoration: underline;
+    font-weight: bold;
 }
