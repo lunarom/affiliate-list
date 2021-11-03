@@ -7,7 +7,7 @@ Parses data from a JSON file into manageable array of objects
 
 Calculates distance between geo. coordinates given in data file, and target location (Dublin office)
 
-Returns array of certain file entries (affiliates), with name and affiliate ID. 
+Returns array of certain file entries (affiliates) within 100km, with name and affiliate ID. 
 
 ## Running the application
 To run the application, clone files to a local directory
